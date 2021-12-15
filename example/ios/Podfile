@@ -1,20 +1,33 @@
-$root_path = "../.."
-$node_modules = "#{$root_path}/node_modules"
-$react_native_path = "#{$node_modules}/react-native"
+# Add the following line at the top of Podfile.
+# Codegen produces files/classes that share names, and it will show the warning.
+# deterministic_uuids option surpresses the warning.
+install! 'cocoapods', :deterministic_uuids => false
 
-require_relative "#{$node_modules}/react-native/scripts/react_native_pods"
-require_relative "#{$node_modules}/@react-native-community/cli-platform-ios/native_modules"
+require 'pathname'
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, "10.0"
+platform :ios, '11.0'
 
-target "SafeAreaViewExample" do
-  use_react_native!(path: $react_native_path)
+ENV['USE_CODEGEN_DISCOVERY'] = '1'
 
-  pod "react-native-safe-area-context", :path => $root_path
-  pod "RNCAsyncStorage", :path => "#{$node_modules}/@react-native-community/async-storage"
-  pod "RNCMaskedView", :path => "#{$node_modules}/@react-native-community/masked-view"
-  pod "RNGestureHandler", :path => "#{$node_modules}/react-native-gesture-handler"
-  pod "RNReanimated", :path => "#{$node_modules}/react-native-reanimated"
-  pod "RNScreens", :path => "#{$node_modules}/react-native-screens"
+target 'example' do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true,
+    :fabric_enabled => true,
+    :app_path => Pathname.new("#{__dir__}/..").cleanpath,
+    :config_file_dir => Pathname.new("#{__dir__}/../../..").cleanpath,
+  )
+
+  pod "react-native-safe-area-context", :path => "../.."
+
+  use_flipper!()
+
+  post_install do |installer|
+    react_native_post_install(installer)
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  end
 end
-

@@ -1,5 +1,5 @@
 import { UIManager } from 'react-native';
-import { Metrics } from '../SafeArea.types';
+import type { Metrics } from '../SafeArea.types';
 
 describe('InitialWindow', () => {
   describe('initialWindowMetrics', () => {

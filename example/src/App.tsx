@@ -1,21 +1,15 @@
-import 'react-native-gesture-handler';
 import * as React from 'react';
 import { DevSettings, View, Text, StatusBar } from 'react-native';
-import { enableScreens } from 'react-native-screens';
 import AsyncStorage from '@react-native-community/async-storage';
 import HooksExample from './HooksExample';
 import SafeAreaViewExample from './SafeAreaViewExample';
-import ReactNavigation4Example from './ReactNavigation4Example';
-import ReactNavigation5Example from './ReactNavigation5Example';
-import NativeStackExample from './NativeStackExample';
-import ReactNativeSafeAreaView from './ReactNativeSafeAreaView';
 
-enableScreens();
+const STORAGE_KEY = 'rnsac-current-example-v2';
 
-const STORAGE_KEY = 'rnsac-current-example';
+type Example = 'safe-area-view' | 'hooks' | 'react-navigation' | 'native-stack';
 
 export default function App() {
-  const [currentExample, setCurrentExample] = React.useState<string | null>(
+  const [currentExample, setCurrentExample] = React.useState<Example | null>(
     null,
   );
   const [statusBarHidden, setStatusBarHidden] = React.useState(false);
@@ -23,7 +17,7 @@ export default function App() {
   React.useEffect(() => {
     async function loadCurrentExample() {
       const example = await AsyncStorage.getItem(STORAGE_KEY);
-      setCurrentExample(example ?? null);
+      setCurrentExample((example as Example | null) ?? null);
     }
     loadCurrentExample();
   }, []);
@@ -47,18 +41,6 @@ export default function App() {
     DevSettings.addMenuItem('Show Hooks Example', () => {
       setCurrentExample('hooks');
     });
-    DevSettings.addMenuItem('Show React Navigation 4 Example', () => {
-      setCurrentExample('react-navigation-4');
-    });
-    DevSettings.addMenuItem('Show React Navigation 5 Example', () => {
-      setCurrentExample('react-navigation-5');
-    });
-    DevSettings.addMenuItem('Show Native Stack Example', () => {
-      setCurrentExample('native-stack');
-    });
-    DevSettings.addMenuItem('Show React Native Safe Area View Example', () => {
-      setCurrentExample('react-native-safe-area-view');
-    });
   }, []);
 
   let content: React.ReactElement<unknown>;
@@ -68,19 +50,6 @@ export default function App() {
       break;
     case 'hooks':
       content = <HooksExample />;
-      break;
-    case 'react-navigation-4':
-      content = <ReactNavigation4Example />;
-      break;
-    case 'react-navigation-5':
-      content = <ReactNavigation5Example />;
-      break;
-    case 'native-stack':
-      content = <NativeStackExample />;
-
-      break;
-    case 'react-native-safe-area-view':
-      content = <ReactNativeSafeAreaView />;
       break;
     default:
       content = (

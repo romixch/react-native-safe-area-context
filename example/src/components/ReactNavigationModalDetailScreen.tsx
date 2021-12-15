@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, Text } from 'react-native';
-import { ScreenProps } from '../types/Navigation';
+import type { ScreenProps } from '../types/Navigation';
 import { SafeAreaViewVisualizer } from './SafeAreaViewVisualizer';
 
 export default function ReactNavigationModalDetailScreen({
