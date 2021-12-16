@@ -3,7 +3,6 @@
 # deterministic_uuids option surpresses the warning.
 install! 'cocoapods', :deterministic_uuids => false
 
-require 'pathname'
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
@@ -18,8 +17,8 @@ target 'example' do
     :path => config[:reactNativePath],
     :hermes_enabled => true,
     :fabric_enabled => true,
-    :app_path => Pathname.new("#{__dir__}/..").cleanpath,
-    :config_file_dir => Pathname.new("#{__dir__}/../../..").cleanpath,
+    :app_path => "#{__dir__}/..",
+    :config_file_dir => "#{__dir__}/../../..",
   )
 
   pod "react-native-safe-area-context", :path => "../.."
