@@ -32,10 +32,7 @@
     "validate:typescript": "tsc --project ./ --noEmit",
     "validate:prettier": "prettier \"src/**/*.{js,ts,tsx}\" \"example/**/*.{js,ts,tsx}\" --check",
     "validate:jest": "jest",
-    "prepare": "bob build",
-    "example:ios": "cd ./example && react-native run-ios",
-    "example:android": "cd ./example && react-native run-android --no-jetifier",
-    "example:expo": "expo start --config example/app.json"
+    "prepare": "bob build"
   },
   "keywords": [
     "react-native",
