@@ -12,7 +12,7 @@ using namespace facebook::react;
 
 class ExampleComponentsRegistry
     : public facebook::jni::HybridClass<ExampleComponentsRegistry> {
-  public:
+ public:
   constexpr static auto kJavaDescriptor =
       "Lcom/example/ExampleComponentsRegistry;";
 
@@ -20,7 +20,7 @@ class ExampleComponentsRegistry
 
   ExampleComponentsRegistry(ComponentFactory *delegate);
 
-  private:
+ private:
   friend HybridBase;
 
   static std::shared_ptr<ComponentDescriptorProviderRegistry const>

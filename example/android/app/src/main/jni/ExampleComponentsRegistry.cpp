@@ -11,8 +11,7 @@ namespace example {
 
 using namespace facebook::react;
 
-ExampleComponentsRegistry::ExampleComponentsRegistry(
-    ComponentFactory *delegate)
+ExampleComponentsRegistry::ExampleComponentsRegistry(ComponentFactory *delegate)
     : delegate_(delegate) {}
 
 std::shared_ptr<ComponentDescriptorProviderRegistry const>
@@ -33,7 +32,7 @@ ExampleComponentsRegistry::initHybrid(
 
   auto buildRegistryFunction =
       [](EventDispatcher::Weak const &eventDispatcher,
-          ContextContainer::Shared const &contextContainer)
+         ContextContainer::Shared const &contextContainer)
       -> ComponentDescriptorRegistry::Shared {
     auto registry = ExampleComponentsRegistry::sharedProviderRegistry()
                         ->createComponentDescriptorRegistry(

@@ -9,8 +9,10 @@ namespace example {
 
 using namespace facebook::react;
 
-class ExampleTurboModuleManagerDelegate : public jni::HybridClass<ExampleTurboModuleManagerDelegate, TurboModuleManagerDelegate> {
-public:
+class ExampleTurboModuleManagerDelegate : public jni::HybridClass<
+                                              ExampleTurboModuleManagerDelegate,
+                                              TurboModuleManagerDelegate> {
+ public:
   static constexpr auto kJavaDescriptor =
       "Lcom/example/ExampleTurboModuleManagerDelegate;";
 
@@ -18,13 +20,16 @@ public:
 
   static void registerNatives();
 
-  std::shared_ptr<TurboModule> getTurboModule(const std::string name, const std::shared_ptr<CallInvoker> jsInvoker) override;
-  std::shared_ptr<TurboModule> getTurboModule(const std::string name, const JavaTurboModule::InitParams &params) override;
+  std::shared_ptr<TurboModule> getTurboModule(
+      const std::string name,
+      const std::shared_ptr<CallInvoker> jsInvoker) override;
+  std::shared_ptr<TurboModule> getTurboModule(
+      const std::string name,
+      const JavaTurboModule::InitParams &params) override;
 
-private:
+ private:
   friend HybridBase;
   using HybridBase::HybridBase;
-
 };
 
 } // namespace example

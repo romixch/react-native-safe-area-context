@@ -10,7 +10,9 @@ namespace example {
 
 using namespace facebook::react;
 
-std::shared_ptr<TurboModule> ExampleModuleProvider(const std::string moduleName, const JavaTurboModule::InitParams &params);
+std::shared_ptr<TurboModule> ExampleModuleProvider(
+    const std::string moduleName,
+    const JavaTurboModule::InitParams &params);
 
 } // namespace example
 } // namespace com

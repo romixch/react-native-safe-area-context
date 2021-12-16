@@ -8,13 +8,15 @@ namespace example {
 
 using namespace facebook::react;
 
-std::shared_ptr<TurboModule> ExampleModuleProvider(const std::string moduleName, const JavaTurboModule::InitParams &params) {
-    auto module = safeareacontext_ModuleProvider(moduleName, params);
-    if (module != nullptr) {
-      return module;
-    }
+std::shared_ptr<TurboModule> ExampleModuleProvider(
+    const std::string moduleName,
+    const JavaTurboModule::InitParams &params) {
+  auto module = safeareacontext_ModuleProvider(moduleName, params);
+  if (module != nullptr) {
+    return module;
+  }
 
-    return rncore_ModuleProvider(moduleName, params);
+  return rncore_ModuleProvider(moduleName, params);
 }
 
 } // namespace example
