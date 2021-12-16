@@ -1,8 +1,8 @@
 import type { Metrics } from './SafeArea.types';
 import NativeSafeAreaContext from './specs/NativeSafeAreaContext';
 
-export const initialWindowMetrics = NativeSafeAreaContext?.getConstants()
-  ?.initialWindowMetrics as Metrics | null;
+export const initialWindowMetrics = (NativeSafeAreaContext?.getConstants()
+  ?.initialWindowMetrics ?? null) as Metrics | null;
 
 /**
  * @deprecated
