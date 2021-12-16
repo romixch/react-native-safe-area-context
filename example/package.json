@@ -17,6 +17,8 @@
     "@react-navigation/bottom-tabs": "^6.0.9",
     "react": "17.0.2",
     "react-native": "0.0.0-20211215-2008-f16cbe59e",
+    "react-native-codegen": "^0.0.12",
+    "react-native-gradle-plugin": "^0.0.3",
     "react-native-safe-area-context": "../"
   },
   "devDependencies": {

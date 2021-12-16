@@ -1,3 +1,14 @@
 rootProject.name = 'example'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
+
+include(":ReactAndroid")
+project(":ReactAndroid").projectDir = file('../node_modules/react-native/ReactAndroid')
+includeBuild('../node_modules/react-native-gradle-plugin') {
+    dependencySubstitution {
+        substitute(module("com.facebook.react:react")).using(project(":"))
+    }
+}
+
+include(":react-native-safe-area-context")
+project(":react-native-safe-area-context").projectDir = file('../../android')

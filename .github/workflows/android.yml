@@ -33,6 +33,9 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install
+      - name: Install example app dependencies
+        run: yarn install
+        working-directory: example
       - name: Build android example app
         run: ./gradlew assembleDebug
         working-directory: example/android

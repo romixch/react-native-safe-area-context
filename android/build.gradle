@@ -18,6 +18,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: "com.facebook.react"
 
 android {
   compileSdkVersion getExtOrDefault('compileSdkVersion', 28)
@@ -43,4 +44,12 @@ repositories {
 dependencies {
   //noinspection GradleDynamicVersion
   implementation 'com.facebook.react:react-native:+'
+}
+
+react {
+    reactRoot = rootProject.file("../node_modules/react-native/")
+    jsRootDir = file("../src/specs/")
+    codegenDir = rootProject.file("../node_modules/react-native-codegen/")
+    libraryName = "safeareacontext"
+    codegenJavaPackageName = "com.th3rdwave.safeareacontext"
 }

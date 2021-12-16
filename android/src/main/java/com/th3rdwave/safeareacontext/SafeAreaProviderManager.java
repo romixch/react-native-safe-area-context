@@ -55,40 +55,4 @@ public class SafeAreaProviderManager extends ViewGroupManager<SafeAreaProvider> 
         .put(InsetsChangeEvent.EVENT_NAME, MapBuilder.of("registrationName", "onInsetsChange"))
         .build();
   }
-
-  private @Nullable Map<String, Object> getInitialWindowMetrics() {
-    Activity activity = mContext.getCurrentActivity();
-    if (activity == null) {
-      return null;
-    }
-
-    ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();
-    if (decorView == null) {
-      return null;
-    }
-
-    View contentView = decorView.findViewById(android.R.id.content);
-    if (contentView == null) {
-      return null;
-    }
-    EdgeInsets insets = SafeAreaUtils.getSafeAreaInsets(decorView);
-    Rect frame = SafeAreaUtils.getFrame(decorView, contentView);
-    if (insets == null || frame == null) {
-      return null;
-    }
-    return MapBuilder.<String, Object>of(
-        "insets",
-        SerializationUtils.edgeInsetsToJavaMap(insets),
-        "frame",
-        SerializationUtils.rectToJavaMap(frame));
-  }
-
-  @Nullable
-  @Override
-  public Map<String, Object> getExportedViewConstants() {
-    return MapBuilder.<String, Object>of(
-        "initialWindowMetrics",
-        getInitialWindowMetrics());
-
-  }
 }
