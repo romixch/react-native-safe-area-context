@@ -61,7 +61,7 @@ public class SafeAreaContextPackage extends TurboReactPackage {
   @Override
   public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
     return Arrays.<ViewManager>asList(
-            new SafeAreaProviderManager(reactContext),
+            new SafeAreaProviderManager(),
             new SafeAreaViewManager()
     );
   }
