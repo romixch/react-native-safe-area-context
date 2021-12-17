@@ -3,7 +3,7 @@
 
 @implementation RCTConvert (RNCSafeAreaView)
 
-RCT_MULTI_ENUM_CONVERTER(
+RCT_ENUM_CONVERTER(
     RNCSafeAreaViewMode,
     (@{
       @"padding" : @(RNCSafeAreaViewModePadding),
