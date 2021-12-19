@@ -1,10 +1,12 @@
 package com.th3rdwave.safeareacontext;
 
 import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.PixelUtil;
 
+import java.util.EnumSet;
 import java.util.Map;
 
 /* package */ class SerializationUtils {
@@ -48,5 +50,39 @@ import java.util.Map;
         PixelUtil.toDIPFromPixel(rect.width),
         "height",
         PixelUtil.toDIPFromPixel(rect.height));
+  }
+
+  static String modeToString(SafeAreaViewMode mode) {
+    switch (mode) {
+      case MARGIN:
+        return "margin";
+      case PADDING:
+        return "padding";
+      default:
+        throw new RuntimeException();
+    }
+  }
+
+  static String edgeToString(SafeAreaViewEdges edge) {
+    switch (edge) {
+      case TOP:
+        return "top";
+      case BOTTOM:
+        return "bottom";
+      case LEFT:
+        return "left";
+      case RIGHT:
+        return "right";
+      default:
+        throw new RuntimeException();
+    }
+  }
+
+  static WritableArray edgesToJsArray(EnumSet<SafeAreaViewEdges> edges) {
+    WritableArray result = Arguments.createArray();
+    for (SafeAreaViewEdges edge : edges) {
+      result.pushString(edgeToString(edge));
+    }
+    return result;
   }
 }

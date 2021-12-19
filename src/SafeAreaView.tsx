@@ -1,5 +1,3 @@
-import { requireNativeComponent } from 'react-native';
-import type { NativeSafeAreaViewProps } from './SafeArea.types';
+import SafeAreaView from './specs/NativeSafeAreaView';
 
-export const SafeAreaView =
-  requireNativeComponent<NativeSafeAreaViewProps>('RNCSafeAreaView');
+export { SafeAreaView };

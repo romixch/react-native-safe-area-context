@@ -1937,6 +1937,19 @@
   dependencies:
     react-native-codegen "*"
 
+"@react-native/eslint-plugin-specs@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@react-native/eslint-plugin-specs/-/eslint-plugin-specs-0.0.3.tgz#11aa4e8f472ee980c8070d0743310520dbc52451"
+  integrity sha512-mcwu1bskw/Hg+qol+Bzax3f+iUe+n+w0vFmGPJ8/34anKB85kg9J73EsQ7rlOesAb2ztI9s6A5IoGXJSb/xMBQ==
+  dependencies:
+    "@babel/core" "^7.14.0"
+    "@babel/plugin-transform-flow-strip-types" "^7.0.0"
+    flow-parser "^0.121.0"
+    make-dir "^2.1.0"
+    pirates "^4.0.1"
+    react-native-codegen "*"
+    source-map-support "0.5.0"
+
 "@react-native/normalize-color@*", "@react-native/normalize-color@2.0.0", "@react-native/normalize-color@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/normalize-color/-/normalize-color-2.0.0.tgz#da955909432474a9a0fe1cbffc66576a0447f567"
@@ -12097,6 +12110,13 @@ source-map-support@0.4.18:
   integrity sha512-try0/JqxPLF9nOjvSta7tVondkP5dwgyLDjVoyMDlmjugT2lRZ1OfsrYTkCd2hkDnJTKRbO/Rl3orm8vlsUzbA==
   dependencies:
     source-map "^0.5.6"
+
+source-map-support@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.0.tgz#2018a7ad2bdf8faf2691e5fddab26bed5a2bacab"
+  integrity sha512-vUoN3I7fHQe0R/SJLKRdKYuEdRGogsviXFkHHo17AWaTGv17VLnxw+CFXvqy+y4ORZ3doWLQcxRYfwKrsd/H7Q==
+  dependencies:
+    source-map "^0.6.0"
 
 source-map-support@^0.5.16, source-map-support@^0.5.6, source-map-support@~0.5.12:
   version "0.5.21"

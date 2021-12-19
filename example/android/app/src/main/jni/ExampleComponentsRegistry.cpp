@@ -5,6 +5,7 @@
 #include <react/renderer/componentregistry/ComponentDescriptorProviderRegistry.h>
 #include <react/renderer/components/rncore/ComponentDescriptors.h>
 #include <react/renderer/components/safeareacontext/ComponentDescriptors.h>
+#include <react/renderer/components/safeareacontext/SafeAreaViewComponentDescriptor.h>
 
 namespace com {
 namespace example {
@@ -20,7 +21,8 @@ ExampleComponentsRegistry::sharedProviderRegistry() {
 
   providerRegistry->add(concreteComponentDescriptorProvider<
                         RNCSafeAreaProviderComponentDescriptor>());
-
+  providerRegistry->add(concreteComponentDescriptorProvider<
+                        SafeAreaViewComponentDescriptor>());
   return providerRegistry;
 }
 

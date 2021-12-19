@@ -6,10 +6,8 @@ import type {
   DirectEventHandler,
   Double,
 } from 'react-native/Libraries/Types/CodegenTypes';
-
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 import type { HostComponent } from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
-
 import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
 
 type Event = $ReadOnly<{|
