@@ -11,7 +11,7 @@ type NativeProps = $ReadOnly<{|
 
   mode?: WithDefault<'padding' | 'margin', 'padding'>,
   // Should be `'top' | 'right' | 'bottom' | 'left'` but that generates invalid code.
-  edges?: $ReadOnlyArray<string>,
+  edges?: ?$ReadOnlyArray<string>,
 |}>;
 
 export default (codegenNativeComponent<NativeProps>('RNCSafeAreaView', {

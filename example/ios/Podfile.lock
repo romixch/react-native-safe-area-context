@@ -628,6 +628,21 @@ PODS:
     - RCTTypeSafety
     - React
     - React-Codegen
+    - ReactCommon/turbomodule/core
+  - react-native-safe-area-context/common (3.3.2):
+    - RCT-Folly (= 2021.06.28.00-v2)
+    - RCTRequired
+    - RCTTypeSafety
+    - React
+    - React-Codegen
+    - ReactCommon/turbomodule/core
+  - react-native-safe-area-context/fabric (3.3.2):
+    - RCT-Folly (= 2021.06.28.00-v2)
+    - RCTRequired
+    - RCTTypeSafety
+    - React
+    - React-Codegen
+    - react-native-safe-area-context/common
     - React-RCTFabric
     - ReactCommon/turbomodule/core
   - React-perflogger (0.0.0-20211215-2008-f16cbe59e)
@@ -758,6 +773,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-safe-area-context (from `../..`)
+  - react-native-safe-area-context/fabric (from `../..`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -907,7 +923,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 6520aaf29a0a212f12b77a90f15463e3e88df5f3
   React-jsinspector: a46a6191db9a01b7c85ad740cdc25947eadc2940
   React-logger: 6771f0fd25af027e35fb517a1185ba9522346f07
-  react-native-safe-area-context: 6c949e120fb609a130753ec2b0c5008969542354
+  react-native-safe-area-context: 5e209625c7c95f3255f0e7d4fc62873083b691d6
   React-perflogger: b9822534d253978ae7599afc9b21e1091249b4ac
   React-RCTActionSheet: 1aa706907a81f109a9419ef5acddd3e9e8319953
   React-RCTAnimation: 6eda091e1b795f28f87aae2ab785b77e0ed3b2ce
@@ -926,6 +942,6 @@ SPEC CHECKSUMS:
   Yoga: 474d28cb071db327794fe270793ed2fc4d51b280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 4784060439c20103125e1dab498fb6364407771d
+PODFILE CHECKSUM: 562580ff5951a3b0534865c74dc70f2069c9a233
 
 COCOAPODS: 1.11.2

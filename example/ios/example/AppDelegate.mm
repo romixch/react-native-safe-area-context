@@ -57,7 +57,7 @@
   _bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc] initWithBridge:bridge contextContainer:_contextContainer];
 
   bridge.surfacePresenter = _bridgeAdapter.surfacePresenter;
-
+  
   UIView *rootView = [[RCTFabricSurfaceHostingProxyRootView alloc] initWithBridge:bridge
                                                                        moduleName:@"example"
                                                                 initialProperties:nil];

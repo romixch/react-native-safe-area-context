@@ -1,6 +1,6 @@
-import { ComponentType } from 'react';
+import type React from 'react';
 import { NativeSafeAreaViewProps } from '../SafeArea.types';
 
-declare const NativeSafeAreaView: ComponentType<NativeSafeAreaViewProps>;
+declare const NativeSafeAreaView: React.ComponentClass<NativeSafeAreaViewProps>;
 
 export default NativeSafeAreaView;

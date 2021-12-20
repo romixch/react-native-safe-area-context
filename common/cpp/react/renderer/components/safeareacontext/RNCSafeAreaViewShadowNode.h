@@ -2,7 +2,7 @@
 
 #include <react/renderer/components/safeareacontext/EventEmitters.h>
 #include <react/renderer/components/safeareacontext/Props.h>
-#include <react/renderer/components/safeareacontext/SafeAreaViewState.h>
+#include <react/renderer/components/safeareacontext/RNCSafeAreaViewState.h>
 #include <react/renderer/components/view/ConcreteViewShadowNode.h>
 
 namespace facebook {
@@ -11,13 +11,13 @@ namespace react {
 extern const char RNCSafeAreaViewComponentName[];
 
 /*
- * `ShadowNode` for <SafeAreaView> component.
+ * `ShadowNode` for <RNCSafeAreaView> component.
  */
-class SafeAreaViewShadowNode final : public ConcreteViewShadowNode<
+class RNCSafeAreaViewShadowNode final : public ConcreteViewShadowNode<
                                          RNCSafeAreaViewComponentName,
                                          RNCSafeAreaViewProps,
                                          ViewEventEmitter,
-                                         SafeAreaViewState> {
+                                         RNCSafeAreaViewState> {
   using ConcreteViewShadowNode::ConcreteViewShadowNode;
 
  public:

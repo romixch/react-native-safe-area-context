@@ -17,6 +17,8 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/th3rdwave/react-native-safe-area-context.git", :tag => "v#{s.version}" }
   s.source_files  = "ios/**/*.{h,m,mm}"
+  s.exclude_files = "ios/Fabric"
+  s.default_subspecs = :none
 
   s.compiler_flags  = folly_compiler_flags
 
@@ -25,10 +27,22 @@ Pod::Spec.new do |s|
   }
 
   s.dependency "React"
-  s.dependency "React-RCTFabric" # This is for fabric component
   s.dependency "React-Codegen"
   s.dependency "RCT-Folly", folly_version
   s.dependency "RCTRequired"
   s.dependency "RCTTypeSafety"
   s.dependency "ReactCommon/turbomodule/core"
+
+  s.subspec "common" do |ss|
+    ss.source_files         = "common/cpp/**/*.{cpp,h}"
+    ss.header_dir           = "react/renderer/components/safeareacontext"
+    ss.pod_target_xcconfig  = { "HEADER_SEARCH_PATHS" => "\"$(PODS_TARGET_SRCROOT)/common/cpp\"" }
+  end
+
+  s.subspec "fabric" do |ss|
+    ss.dependency "React-RCTFabric"
+    ss.dependency "react-native-safe-area-context/common"
+    ss.source_files         = "ios/Fabric/**/*.{h,m,mm}"
+    ss.pod_target_xcconfig  = { "HEADER_SEARCH_PATHS" => "\"$(PODS_TARGET_SRCROOT)/common/cpp\"" }
+  end
 end

@@ -61,8 +61,6 @@ public class SafeAreaView extends ReactViewGroup implements ViewTreeObserver.OnP
           public WritableMap getStateUpdate() {
             WritableMap map = new WritableNativeMap();
             map.putMap("insets", SerializationUtils.edgeInsetsToJsMap(insets));
-            map.putString("mode", SerializationUtils.modeToString(mode));
-            map.putArray("edges", SerializationUtils.edgesToJsArray(edges));
             return map;
           }
         });

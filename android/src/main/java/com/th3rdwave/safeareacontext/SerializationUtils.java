@@ -51,38 +51,4 @@ import java.util.Map;
         "height",
         PixelUtil.toDIPFromPixel(rect.height));
   }
-
-  static String modeToString(SafeAreaViewMode mode) {
-    switch (mode) {
-      case MARGIN:
-        return "margin";
-      case PADDING:
-        return "padding";
-      default:
-        throw new RuntimeException();
-    }
-  }
-
-  static String edgeToString(SafeAreaViewEdges edge) {
-    switch (edge) {
-      case TOP:
-        return "top";
-      case BOTTOM:
-        return "bottom";
-      case LEFT:
-        return "left";
-      case RIGHT:
-        return "right";
-      default:
-        throw new RuntimeException();
-    }
-  }
-
-  static WritableArray edgesToJsArray(EnumSet<SafeAreaViewEdges> edges) {
-    WritableArray result = Arguments.createArray();
-    for (SafeAreaViewEdges edge : edges) {
-      result.pushString(edgeToString(edge));
-    }
-    return result;
-  }
 }

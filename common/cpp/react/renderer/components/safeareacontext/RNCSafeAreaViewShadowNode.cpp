@@ -1,4 +1,4 @@
-#include "SafeAreaViewShadowNode.h"
+#include "RNCSafeAreaViewShadowNode.h"
 
 #include <react/renderer/components/view/conversions.h>
 #include <react/renderer/core/LayoutContext.h>
@@ -22,21 +22,21 @@ inline YGValue valueFromEdges(YGStyle::Edges edges, YGEdge edge, YGEdge axis) {
   return edges[YGEdgeAll];
 }
 
-void SafeAreaViewShadowNode::adjustLayoutWithState() {
+void RNCSafeAreaViewShadowNode::adjustLayoutWithState() {
   ensureUnsealed();
 
   auto props = getConcreteProps();
   auto state =
-      std::static_pointer_cast<const SafeAreaViewShadowNode::ConcreteState>(
+      std::static_pointer_cast<const RNCSafeAreaViewShadowNode::ConcreteState>(
           getState());
   auto stateData = state->getData();
-  auto edges = stateData.edges;
+  auto edges = props.edges;
 
   // Get the current values for padding / margin. The only caveat here is that
   // percent values are not supported. Also might need to add support for start
   // / end.
   YGValue top, left, right, bottom;
-  if (stateData.mode == RNCSafeAreaViewMode::Padding) {
+  if (props.mode == RNCSafeAreaViewMode::Padding) {
     top = valueFromEdges(props.yogaStyle.padding(), YGEdgeTop, YGEdgeVertical);
     left =
         valueFromEdges(props.yogaStyle.padding(), YGEdgeLeft, YGEdgeHorizontal);
@@ -72,7 +72,7 @@ void SafeAreaViewShadowNode::adjustLayoutWithState() {
   }
 
   YGStyle adjustedStyle = getConcreteProps().yogaStyle;
-  if (stateData.mode == RNCSafeAreaViewMode::Padding) {
+  if (props.mode == RNCSafeAreaViewMode::Padding) {
     adjustedStyle.padding()[YGEdgeTop] = top;
     adjustedStyle.padding()[YGEdgeLeft] = left;
     adjustedStyle.padding()[YGEdgeRight] = right;
