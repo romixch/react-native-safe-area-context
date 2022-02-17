@@ -6,8 +6,9 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
   useSafeAreaFrame,
+  withSafeAreaInsets
 } from '../SafeAreaContext';
-import { Metrics } from '../SafeArea.types';
+import { EdgeInsets, Metrics } from '../SafeArea.types';
 
 const TEST_METRICS_1: Metrics = {
   insets: { top: 1, left: 2, right: 3, bottom: 4 },
@@ -118,3 +119,28 @@ describe('SafeAreaContext', () => {
     consoleErrorMock.mockRestore();
   });
 });
+
+describe('withSafeAreaContext', ()=> {
+  type Props = {insets: EdgeInsets}
+  class TestClassComponent extends React.Component<Props> {
+      render() {
+        return (
+          <View
+            style={{
+              paddingTop: this.props.insets.top,
+              paddingLeft: this.props.insets.left,
+              paddingBottom: this.props.insets.bottom,
+              paddingRight: this.props.insets.right,
+            }
+          }
+        />)
+      }
+  }
+  const TestComponentWithInsets = withSafeAreaInsets(TestClassComponent)
+  it('should provide correct typings', () => {
+    ReactTestRenderer.create(
+    <SafeAreaProvider>
+      <TestComponentWithInsets />
+    </SafeAreaProvider>)
+  })
+})
