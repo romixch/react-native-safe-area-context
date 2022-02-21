@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { View } from 'react-native';
 import * as ReactTestRenderer from 'react-test-renderer';
-import NativeSafeAreaView from '../NativeSafeAreaProvider';
+import { NativeSafeAreaProvider } from '../NativeSafeAreaProvider';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
   useSafeAreaFrame,
   withSafeAreaInsets
 } from '../SafeAreaContext';
-import { EdgeInsets, Metrics } from '../SafeArea.types';
+import type { EdgeInsets, Metrics } from '../SafeArea.types';
 
 const TEST_METRICS_1: Metrics = {
   insets: { top: 1, left: 2, right: 3, bottom: 4 },
@@ -60,8 +60,9 @@ describe('SafeAreaContext', () => {
       </SafeAreaProvider>,
     );
     expect(component).toMatchSnapshot();
-    const { onInsetsChange } =
-      component.root.findByType(NativeSafeAreaView).props;
+    const { onInsetsChange } = component.root.findByType(
+      NativeSafeAreaProvider,
+    ).props;
     ReactTestRenderer.act(() => {
       onInsetsChange({
         nativeEvent: TEST_METRICS_1,
